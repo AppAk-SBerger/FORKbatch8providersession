@@ -1,0 +1,10 @@
+
+1. Guckt euch das Projekt an. Was für Code ist schon geschrieben.
+     Wie ist der Code aufgebaut? Was für Screens gibt es
+1.1 Wir starten simple und wollen einen normalen provider benutzen um das Authrepo nicht mehr übergeben zu müssen
+    1.1.1 Füge auch die logout funktion hinzu(den button gibt es schon)
+2. Wir wollen Habits hinzufügen, abhacken und editieren können. Schreibe dafür eine Provider Klasse.
+    2.1 Binde den Provider in den Screens ein
+3. Jetzt wollen wir die Daten auch noch in firestore Speichern
+    3.1 dafür erstellen wir erstmal ein Firebase repo, dass alle nötigen operationen implementiert
+    3.2 jetzt verbinden wir unseren Habit provider mit firebase(Überlegung: wann soll immer geladen werden?)
