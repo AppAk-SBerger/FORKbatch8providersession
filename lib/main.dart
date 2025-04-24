@@ -1,3 +1,4 @@
+import 'package:batch8_provider_firestore_24_4/features/habits/provider/habit_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,17 @@ void main() async {
   FirebaseAuthRepository authRepository =
       FirebaseAuthRepository(authInstance: auth);
 
-  runApp(MyApp(
-    authRepository: authRepository,
+  runApp(MultiProvider(providers: [
+    Provider<FirebaseAuthRepository>
+      (
+        create: (_) => authRepository
+      ),
+      ChangeNotifierProvider(create: (_)=> HabitProvider()),
+      
+
+  ],
+  child: MyApp(),
+  
+  
   ));
 }

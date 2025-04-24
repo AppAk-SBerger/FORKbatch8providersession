@@ -7,14 +7,14 @@ import 'features/authentication/data/firebase_auth_repository.dart';
 import 'features/habits/presentation/home_screen.dart';
 
 class MyApp extends StatelessWidget {
-  final FirebaseAuthRepository authRepository;
 
-  const MyApp({super.key, required this.authRepository});
+
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(
-        stream: authRepository.onAuthStateChanged,
+        stream: context.read<FirebaseAuthRepository>().onAuthStateChanged,
         builder: (context, snapshot) {
           // Es reicht zu überprüfen, ob wir einen User haben
           final isLoggedIn = snapshot.data != null;

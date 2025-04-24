@@ -1,4 +1,5 @@
 import 'package:batch8_provider_firestore_24_4/features/habits/model/habit.dart';
+import 'package:batch8_provider_firestore_24_4/features/habits/provider/habit_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -37,7 +38,9 @@ class _EditHabitScreenState extends State<EditHabitScreen> {
               final updatedTitle = _controller.text.trim();
               if (updatedTitle.isEmpty) return;
 
-              //TODO
+              context
+                  .read<HabitProvider>()
+                  .updateHabit(updatedTitle, widget.currentHabit);
 
               Navigator.of(context).pop();
             },

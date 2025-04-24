@@ -101,7 +101,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           return;
                         } else {
                           // Register with Firebase Auth
-                          //TODO
+                          context
+                              .read<FirebaseAuthRepository>()
+                              .register(email, password);
                         }
                       }
                     },

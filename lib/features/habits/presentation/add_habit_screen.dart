@@ -1,3 +1,4 @@
+import 'package:batch8_provider_firestore_24_4/features/habits/provider/habit_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,7 +29,8 @@ class _AddHabitScreenState extends State<AddHabitScreen> {
               final title = _controller.text.trim();
               if (title.isEmpty) return;
 
-              //TODO
+              context.read<HabitProvider>().addHabit(title);
+
               Navigator.of(context).pop();
             },
             child: const Text('Speichern'),

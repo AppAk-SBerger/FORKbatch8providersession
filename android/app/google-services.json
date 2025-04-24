@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "548047765681",
-    "project_id": "batch8-provider-test",
-    "storage_bucket": "batch8-provider-test.firebasestorage.app"
+    "project_number": "416122152795",
+    "project_id": "batch8wiederholung-24-4",
+    "storage_bucket": "batch8wiederholung-24-4.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:548047765681:android:222b0865e9042d74a4a290",
+        "mobilesdk_app_id": "1:416122152795:android:c478288e7260971877dc7e",
         "android_client_info": {
           "package_name": "com.example.batch8_provider_firestore_24_4"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCpCIb1WiHdiaEavxSaya0g46dGobxbb_E"
+          "current_key": "AIzaSyDozC5--xR6b1_LXDzfYBTcrJtNAseBB-A"
         }
       ],
       "services": {
