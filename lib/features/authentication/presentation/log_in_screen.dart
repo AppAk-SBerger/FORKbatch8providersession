@@ -76,9 +76,7 @@ class _LogInPageState extends State<LogInPage> {
                         final email = _emailController.text;
                         final password = _passwordController.text;
 
-                        await Provider.of<FirebaseAuthRepository>(context,
-                                listen: false)
-                            .loginUser(email, password);
+                        //TODO
                       }
                     },
                     child: Text(

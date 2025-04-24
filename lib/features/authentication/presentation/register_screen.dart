@@ -49,10 +49,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizedBox(
                   height: 32,
                 ),
-                Center(child: Image.asset("assets/images/logo.png")),
-                SizedBox(
-                  height: 32,
-                ),
                 const Text("E-Mail"),
                 TextFormField(
                   controller: _emailController,
@@ -105,9 +101,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           return;
                         } else {
                           // Register with Firebase Auth
-                          await Provider.of<FirebaseAuthRepository>(context,
-                                  listen: false)
-                              .register(email, password);
+                          //TODO
                         }
                       }
                     },
