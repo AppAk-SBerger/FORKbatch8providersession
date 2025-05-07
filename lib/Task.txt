@@ -6,5 +6,5 @@
 2. Wir wollen Habits hinzufügen, abhacken und editieren können. Schreibe dafür eine Provider Klasse.
     2.1 Binde den Provider in den Screens ein
 3. Jetzt wollen wir die Daten auch noch in firestore Speichern
-    3.1 dafür erstellen wir erstmal ein Firebase repo, dass alle nötigen operationen implementiert
+    3.1 dafür erstellen wir erstmal ein Firebase repo, dass alle nötigen Operationen implementiert
     3.2 jetzt verbinden wir unseren Habit provider mit firebase(Überlegung: wann soll immer geladen werden?)

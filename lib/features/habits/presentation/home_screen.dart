@@ -31,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: Consumer<HabitProvider>(builder: (context, habitprovider, _) {
+        if (habitprovider.isLoading) return CircularProgressIndicator();
         return ListView.builder(
           itemCount: habitprovider.habits.length,
           itemBuilder: (_, i) {

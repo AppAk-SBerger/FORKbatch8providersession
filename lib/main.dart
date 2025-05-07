@@ -1,3 +1,4 @@
+import 'package:batch8_provider_firestore_24_4/features/habits/data/firestore_habit_repo.dart';
 import 'package:batch8_provider_firestore_24_4/features/habits/provider/habit_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,20 +15,28 @@ void main() async {
   // Firebase Auth Instanz
   final FirebaseAuth auth = FirebaseAuth.instance;
 
+  final FirebaseFirestore firestoreInstanz = FirebaseFirestore.instance;
+
+  final FirestoreHabitRepo firestoreHabitRepo =
+      FirestoreHabitRepo(firestore: firestoreInstanz, auth: auth);
+
   FirebaseAuthRepository authRepository =
       FirebaseAuthRepository(authInstance: auth);
 
-  runApp(MultiProvider(providers: [
-    Provider<FirebaseAuthRepository>
-      (
-        create: (_) => authRepository
-      ),
-      ChangeNotifierProvider(create: (_)=> HabitProvider()),
-      
-
-  ],
-  child: MyApp(),
-  
-  
+  runApp(MultiProvider(
+    providers: [
+      Provider<FirebaseAuthRepository>(create: (_) => authRepository),
+      ChangeNotifierProvider(create: (_) {
+        final HabitProvider habitProvider =
+            HabitProvider(firestoreHabitRepo: firestoreHabitRepo);
+        //    Der Aufruf hier ist "fire-and-forget" (wir warten nicht mit `await` darauf),
+        //    weil `create` synchron sein muss. Der Provider selbst kümmert sich
+        //    intern darum, seinen Ladezustand (`loading`) zu verwalten und die
+        //    UI via `notifyListeners()` zu informieren.
+        habitProvider.initialize();
+        return habitProvider;
+      }),
+    ],
+    child: MyApp(),
   ));
 }
