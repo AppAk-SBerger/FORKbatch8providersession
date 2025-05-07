@@ -18,7 +18,7 @@ class HabitProvider with ChangeNotifier {
 
     notifyListeners();
 
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 2)); // only for testing to see loading indicator
 
     _habits = await firestoreHabitRepo.getHabits();
 
